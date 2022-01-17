@@ -1,0 +1,100 @@
+
+/* slider section */
+.slider_section {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 75px 0;
+    background-color: #f5f6f9;
+    position: relative;
+  }
+  
+  .slider_section .row {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .slider_section #customCarousel1 {
+    width: 100%;
+    position: unset;
+  }
+  
+  .slider_section .detail-box h5 {
+    color: #44b89d;
+  }
+  
+  .slider_section .detail-box h1 {
+    font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 58px;
+    font-size: 3rem;
+  }
+  
+  .slider_section .detail-box a {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #44b89d;
+    color: #ffffff;
+    border-radius: 45px;
+    border: 1px solid #44b89d;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: 15px;
+  }
+  
+  .slider_section .detail-box a:hover {
+    background-color: transparent;
+    color: #44b89d;
+  }
+  
+  .slider_section .img-box img {
+    width: 100%;
+  }
+  
+  .slider_section .carousel_btn_box {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 105px;
+    height: 50px;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+    z-index: 3;
+  }
+  
+  .slider_section .carousel_btn_box .carousel-control-prev,
+  .slider_section .carousel_btn_box .carousel-control-next {
+    position: unset;
+    width: 50px;
+    height: 50px;
+    background-color: #063547;
+    opacity: 1;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    font-size: 18px;
+    border-radius: 100%;
+  }
+  
+  .slider_section .carousel_btn_box .carousel-control-prev img,
+  .slider_section .carousel_btn_box .carousel-control-next img {
+    width: 10px;
+  }
+  
+  .slider_section .carousel_btn_box .carousel-control-prev:hover,
+  .slider_section .carousel_btn_box .carousel-control-next:hover {
+    background-color: #44b89d;
+  }
+ 
