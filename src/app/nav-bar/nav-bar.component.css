@@ -1,5 +1,9 @@
 
 /*header section*/
+
+i:hover {
+  color: #44b89d;
+}
 .hero_area {
     position: relative;
     min-height: 100vh;
