@@ -30,9 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/typeface-muli/index.css"
-              
+              "src/styles.css"              
             ],
             "scripts": [
               "src/assets/js/jquery-3.4.1.min.js",

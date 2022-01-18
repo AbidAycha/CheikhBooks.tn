@@ -5,14 +5,14 @@
 >
   <mat-card-header> </mat-card-header>
   <mat-card-content>
-    <div [ngClass]="isHover ? 'my_class1' : 'book-image-wrapper-div'">
+    <div [ngClass]="isHover ? 'book-image-wrapper-div-hovered' : 'book-image-wrapper-div-not-hovered'">
       <img
         mat-card-image
         src="./../assets/books/book.jpg"
-        [ngClass]="isHover ? 'hovered-book-image' : 'dezef'"
+        [ngClass]="isHover ? 'hovered-book-image book-image' : 'not-hovered-book-image book-image'"
         [ngStyle]="{
-          height: index % 2 == 0 ? '61vh' : '60vh',
-          'margin-top': index % 2 == 0 ? '-1vh' : '0vh'
+          height: index % 2 == 0 ? '62vh' : '60vh',
+          'margin-top': index % 2 == 0 ? '-2vh' : '0vh'
         }"
       />
     </div>
@@ -20,7 +20,7 @@
     <div class="module-promo-copy">
       <h4
         class="module-promo-title"
-        [ngClass]="isHover ? 'my_class2' : 'my_class4'"
+        [ngClass]="isHover ? 'underlined-hovered-text-book' : 'my_class4'"
       >
         All the Quiet Places
       </h4>

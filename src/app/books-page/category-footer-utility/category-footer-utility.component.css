@@ -1,0 +1,13 @@
+.app-category-footer-utility {
+    background-color: #f5f6f9;
+    margin-left: -2%;
+    padding-top: 1%;
+  }
+  .app-category-footer-utility-content{
+    margin-left: 3%;
+  }
+  .your-results-category{
+      font-weight: bold;
+      line-height: 40px;
+      font-size: 1.4rem;
+  }
