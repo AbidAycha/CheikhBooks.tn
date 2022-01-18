@@ -1,0 +1,14 @@
+<mat-toolbar color="primary"> Card view demo </mat-toolbar>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="1.1% grid">
+    <div
+      fxFlex="25%"
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex.md="45%"
+      *ngFor="let num of [1, 2, 3, 4, 5,6,7,8,9,10]"
+    >
+      <app-card-book [index]="num"></app-card-book>
+    </div>
+  </div>
+</div>
