@@ -14,6 +14,7 @@ import { OurBlogComponent } from './home/our-blog/our-blog.component';
 import { ContactSectionComponent } from './home/contact-section/contact-section.component';
 import { InfoSectionComponent } from './home/info-section/info-section.component';
 import { FooterComponent } from './footer/footer.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
