@@ -3,43 +3,90 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" routerLink="/home">
+            
             <span>
-              Bostorek
+              ChikhBooks &nbsp;&nbsp;
             </span>
           </a>
+          
+          <form class="search_form">
+            <input type="text" class="form-control" placeholder="Search here...">
+            <button class="" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
 
         <button (click)="onchange()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" [attr.aria-expanded]="expanded" aria-label="Toggle navigation">
             <span > 
              
             </span>
           </button> 
-
+         
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+              
+              <li class="nav-item active" >
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="home" >
+                  <a class="nav-link active pl-lg-0" aria-current="page" routerLink="home" [style.color]="colorhome" (click)="changeColorhome()">
+                    <i class="fa fa-home " style="font-size:170%" aria-hidden="true"  ></i> 
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </span>
                 
-                <a class="nav-link active pl-lg-0" aria-current="page" routerLink="home" >Home <span class="sr-only">(current)</span></a>
               </li>
+
+             
+              <li class="nav-item ">
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="sell" >
+                  <a class="nav-link" routerLink="home" [style.color]="colorsell" (click)="changeColorsell()" > 
+                    <i class="fa fa-briefcase " aria-hidden="true" style="font-size:170%"></i></a>
+                </span>
+                
+              </li>
+
+              <li class="nav-item dropdown">
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="categories">
+                  <a class="nav-link "  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[style.color]="colorcategories" (click)="changeColorcategories()">
+                    <i class="fa fa-list-alt " aria-hidden="true" style="font-size:170%"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Novel</a>
+                    <a class="dropdown-item" href="#">Science</a>
+                    <a class="dropdown-item" href="#">History</a>
+                    <a class="dropdown-item" href="#">Biography</a>
+                    <a class="dropdown-item" href="#">Adventure</a>
+                    <a class="dropdown-item" href="#">Fantasy</a>     
+                  </div>
+                </span>           
+              </li>
+
+              
+
               <li class="nav-item">
-                <a class="nav-link" routerLink="home"  > About</a>
+
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="basket"[style.color]="colorbasket" (click)="changeColorbasket()">
+                  <a class="nav-link" href="blog.html"> <i class="fa fa-shopping-basket " aria-hidden="true" style="font-size:170%"></i> </a>
+                </span>
+               
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="categories.html">Categories</a>
+
+              <li class="nav-item dropdown">
+
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="user">
+                  <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"[style.color]="coloruser"(click)="changeColoruser()">
+                    <i class="fa fa-user " aria-hidden="true" style="font-size:170%"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">account</a>
+                    <a class="dropdown-item" href="#">logout</a> 
+                  </div>
+                </span>
+                
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html"> Blog </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li>
+             
             </ul>
-            <form class="search_form">
-              <input type="text" class="form-control" placeholder="Search here...">
-              <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
+            
           </div>
         </nav>
       </div>
