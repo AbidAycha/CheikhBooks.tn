@@ -8,7 +8,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CardBookComponent } from './card-book/card-book.component';
+import { CardBookComponent } from './books-page/card-book/card-book.component';
 import { CategoryPageComponent } from './books-page/category-page/category-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +22,7 @@ import { ContactSectionComponent } from './home/contact-section/contact-section.
 import { InfoSectionComponent } from './home/info-section/info-section.component';
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { CategoryFooterUtilityComponent } from './books-page/category-footer-utility/category-footer-utility.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     OurBlogComponent,
     ContactSectionComponent,
     InfoSectionComponent,
-    FooterComponent
+    FooterComponent,
+    CategoryFooterUtilityComponent
   ],
   imports: [
     BrowserModule,

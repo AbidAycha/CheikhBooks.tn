@@ -1,0 +1,35 @@
+<mat-card
+  (mouseenter)="mouseEnterAction()"
+  (mouseleave)="mouseLeaveAction()"
+  class="mat-elevation-z4"
+>
+  <mat-card-header> </mat-card-header>
+  <mat-card-content>
+    <div [ngClass]="isHover ? 'book-image-wrapper-div-hovered' : 'book-image-wrapper-div-not-hovered'">
+      <img
+        mat-card-image
+        src="./../assets/books/book.jpg"
+        [ngClass]="isHover ? 'hovered-book-image book-image' : 'not-hovered-book-image book-image'"
+        [ngStyle]="{
+          height: index % 2 == 0 ? '62vh' : '60vh',
+          'margin-top': index % 2 == 0 ? '-2vh' : '0vh'
+        }"
+      />
+    </div>
+
+    <div class="module-promo-copy">
+      <h4
+        class="module-promo-title"
+        [ngClass]="isHover ? 'underlined-hovered-text-book' : 'my_class4'"
+      >
+        All the Quiet Places
+      </h4>
+      <p class="module-promo-subtitle">A Novel</p>
+      <p class="module-promo-author">
+        <span class="module-promo-role">by (author)</span>
+        Brian Thomas Isaac
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions> </mat-card-actions>
+</mat-card>
