@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BooksSearchService } from 'src/app/Services/books.search.service';
 
 @Component({
   selector: 'app-search-result-sidebar',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultSidebarComponent implements OnInit {
   isExpanded: boolean;
-  constructor() {
+  listOfCategories;
+  constructor(private serviceSearchBooks:  BooksSearchService,) {
     this.isExpanded = false;
+    this.listOfCategories=serviceSearchBooks.categoriesList;
   }
   ngOnInit(): void {}
 }

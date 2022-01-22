@@ -12,3 +12,6 @@
 #form-filter-categories .form-check-input:focus {
   box-shadow: none;
 }
+.item-category-filter-search{
+  height: 6vh;
+}

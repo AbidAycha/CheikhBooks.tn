@@ -13,20 +13,20 @@
       fxFlex.xs="100%"
       fxFlex.sm="50%"
       fxFlex.md="40%"
-      [ngStyle]="{'margin-right': showFilters ? '15%' :'0%' }"
+      [ngStyle]="{ 'margin-right': showFilters ? '15%' : '0%' }"
       class="side-bar-result-search"
       *ngIf="showFilters"
     >
       <app-search-result-sidebar></app-search-result-sidebar>
     </div>
     <div
-      [fxFlex]="showHideFilters ?'25%':'30%'"
+      [fxFlex]="showHideFilters ? '25%' : '30%'"
       fxFlex.xs="100%"
       fxFlex.sm="50%"
       fxFlex.md="45%"
       *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
     >
-      <app-card-book [index]="num"></app-card-book>
+      <app-card-book [index]="num" [expanded]="showFilters"></app-card-book>
     </div>
   </div>
 </div>

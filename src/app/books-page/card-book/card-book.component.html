@@ -11,8 +11,8 @@
         src="./../assets/books/book.jpg"
         [ngClass]="isHover ? 'hovered-book-image book-image' : 'not-hovered-book-image book-image'"
         [ngStyle]="{
-          height: index % 2 == 0 ? '62vh' : '60vh',
-          'margin-top': index % 2 == 0 ? '-2vh' : '0vh'
+          height: expanded? index % 2 == 0 ? '60vh' : '62vh':index % 2 == 0 ? '62vh' : '60vh',
+          'margin-top': expanded?index % 2 == 0 ? '-2vh' : '0vh':index % 2 == 0 ? '0vh' : '-2vh'
         }"
       />
     </div>
