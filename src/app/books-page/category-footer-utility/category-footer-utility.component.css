@@ -1,13 +1,64 @@
 .app-category-footer-utility {
-    background-color: #f5f6f9;
-    margin-left: -2%;
-    padding-top: 1%;
-  }
-  .app-category-footer-utility-content{
-    margin-left: 3%;
-  }
-  .your-results-category{
-      font-weight: bold;
-      line-height: 40px;
-      font-size: 1.4rem;
-  }
+  background-color: #f5f6f9;
+  margin-left: -2%;
+  padding-right: 3%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  margin-bottom: 5vh;
+}
+.app-category-footer-utility-content {
+  margin-left: 1%;
+  flex-direction: column;
+  flex: auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.app-category-footer-utility-content > h5 {
+  margin-left: 2%;
+}
+.your-results-category {
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.sign-in-to-buy-page-category {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 6%;
+  margin-right: 1%;
+  gap: 1%;
+}
+.sign-in-right-side-category-book-footer > span > a {
+  color: #063547;
+  text-decoration: underline;
+}
+.sign-in-right-side-category-book-footer > span > a:hover {
+  color: #074963;
+}
+.sign-in-box-books {
+  background-color: #44b89d;
+  color: #f5f6f9;
+  border-radius: 16px;
+}
+.sign-in-box-books:hover {
+  color: #44b89d;
+  background-color: #f5f6f9;
+}
+.expanded {
+  transform: rotate(90deg);
+  transition-duration: 200ms;
+  transition-property: transform;
+}
+.not-expanded {
+  transform: rotate(0deg);
+  transition-duration: 200ms;
+  transition-property: transform;
+}
+.sign-in-right-side-category-book-footer{
+  margin-left: auto;
+}
+.button-expand-sign-in-to-buy-page-category{
+  margin-left: 1%;
+}

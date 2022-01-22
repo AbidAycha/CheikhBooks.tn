@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,7 @@ export class NavBarComponent implements OnInit {
   colorbasket="white";
   coloruser="white";
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,9 @@ export class NavBarComponent implements OnInit {
   onchange(){
     this.expanded=!this.expanded;
       }
+  navigateSearch():void{
+    this.router.navigate(['search/result']);
+  }
 
   changeColorhome(){
     this. colorhome="#44b89d";

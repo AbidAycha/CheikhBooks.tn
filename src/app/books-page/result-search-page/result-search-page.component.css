@@ -1,0 +1,10 @@
+.content {
+  padding-left: 2%;
+}
+.search-result-content-container {
+  transition-property: width;
+  transition-duration: 200ms;
+}
+.side-bar-result-search {
+  position: sticky;
+}
