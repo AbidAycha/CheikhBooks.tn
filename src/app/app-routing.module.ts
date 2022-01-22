@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryPageComponent } from './books-page/category-page/category-page.component';
+import { ResultSearchPageComponent } from './books-page/result-search-page/result-search-page.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -8,7 +9,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'category', component: CategoryPageComponent },
+  { path: 'category/:chosenCategory', component: CategoryPageComponent },
+  { path: 'search/result', component: ResultSearchPageComponent },
   { path: '**', component: PageNotFoundComponent }
 
 ];
