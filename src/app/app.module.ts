@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,6 +23,11 @@ import { InfoSectionComponent } from './home/info-section/info-section.component
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CategoryFooterUtilityComponent } from './books-page/category-footer-utility/category-footer-utility.component';
+import { ResultSearchPageComponent } from './books-page/result-search-page/result-search-page.component';
+import { SearchResultSidebarComponent } from './books-page/search-result-sidebar/search-result-sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -40,19 +45,24 @@ import { CategoryFooterUtilityComponent } from './books-page/category-footer-uti
     ContactSectionComponent,
     InfoSectionComponent,
     FooterComponent,
-    CategoryFooterUtilityComponent
+    CategoryFooterUtilityComponent,
+    ResultSearchPageComponent,
+    SearchResultSidebarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
+    MatListModule,
     FlexLayoutModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatCheckboxModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

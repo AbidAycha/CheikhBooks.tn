@@ -3,10 +3,24 @@
     <h4 class="your-results-category">Your results</h4>
     <h5>Showing 8 books</h5>
     <div class="sign-in-to-buy-page-category">
-      <button mat-stroked-button	 class="sign-in-box-books">
-        <i class="fa fa-sign-in" aria-hidden="true"></i>
+      <button
+        mat-flat-button
+        class="button-expand-sign-in-to-buy-page-category"
+        *ngIf="buttonFilter"
+        (click)="showHideFiltersAction()"
+      >
+        <i
+          class="fa fa-bars"
+          [ngClass]="showHideFilterStatus ? 'expanded' : 'not-expanded'"
+          aria-hidden="true"
+        ></i>
       </button>
-      <span> <a href="#">Sign in</a> to be able to buy books </span>
+      <div class="sign-in-right-side-category-book-footer">
+        <span> <a href="#">Sign in</a> to be able to buy books </span>
+        <button mat-stroked-button class="sign-in-box-books">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

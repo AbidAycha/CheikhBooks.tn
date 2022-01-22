@@ -25,16 +25,16 @@
 
 .sign-in-to-buy-page-category {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   grid-gap: 6%;
   margin-right: 1%;
   gap: 1%;
 }
-.sign-in-to-buy-page-category > span > a {
+.sign-in-right-side-category-book-footer > span > a {
   color: #063547;
   text-decoration: underline;
 }
-.sign-in-to-buy-page-category > span > a:hover {
+.sign-in-right-side-category-book-footer > span > a:hover {
   color: #074963;
 }
 .sign-in-box-books {
@@ -45,5 +45,20 @@
 .sign-in-box-books:hover {
   color: #44b89d;
   background-color: #f5f6f9;
-
+}
+.expanded {
+  transform: rotate(90deg);
+  transition-duration: 200ms;
+  transition-property: transform;
+}
+.not-expanded {
+  transform: rotate(0deg);
+  transition-duration: 200ms;
+  transition-property: transform;
+}
+.sign-in-right-side-category-book-footer{
+  margin-left: auto;
+}
+.button-expand-sign-in-to-buy-page-category{
+  margin-left: 1%;
 }

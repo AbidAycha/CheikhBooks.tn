@@ -19,7 +19,6 @@ export class CardBookComponent implements OnInit {
     this.isHover=false;
   }
   mouseEnterAction():void{
-    console.log("indeeex",this.index)
     this.isHover=true
   }
 }
