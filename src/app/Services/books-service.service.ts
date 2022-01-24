@@ -15,12 +15,36 @@ export class BooksServiceService {
     'Adventure',
     'Fantasy',
   ];
-  constructor(private http: HttpClient) {}
+  listOfSelectedFilters: string;
+  constructor(private http: HttpClient) {
+    this.listOfSelectedFilters = '';
+  }
 
   getBooksByCategory(categoryId: string): Observable<Object> {
+    let params = new HttpParams();
+    params = params.append('genre', categoryId);
+    return this.http.get(CONSTANTS.apis.books.getBooksByCategory, {
+      params: params,
+    });
+  }
+  searchBookByTitleOrAuthor(search: string): Observable<Object> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append('genre', categoryId);
-    return this.http.get(CONSTANTS.apis.getBooksByCategory, {
+    queryParams = queryParams.append('name', search);
+    return this.http.get(CONSTANTS.apis.books.searchBookByTitleOrAuthor, {
+      params: queryParams,
+    });
+  }
+
+  filterBooks(filters: Object): Observable<Object> {
+    this.listOfSelectedFilters = '';
+    for (const [key, value] of Object.entries(filters)) {
+      if (value == true) {
+        this.listOfSelectedFilters = this.listOfSelectedFilters + ',' + key;
+      }
+    }
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('genre', this.listOfSelectedFilters);
+    return this.http.get(CONSTANTS.apis.books.searchBookByTitleOrAuthor, {
       params: queryParams,
     });
   }

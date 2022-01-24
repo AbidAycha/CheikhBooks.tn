@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksServiceService } from 'src/app/Services/books-service.service';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-result-sidebar',
@@ -9,9 +11,14 @@ import { BooksServiceService } from 'src/app/Services/books-service.service';
 export class SearchResultSidebarComponent implements OnInit {
   isExpanded: boolean;
   listOfCategories;
-  constructor(private serviceSearchBooks:  BooksServiceService,) {
+  constructor(private serviceSearchBooks: BooksServiceService) {
     this.isExpanded = false;
-    this.listOfCategories=serviceSearchBooks.categoriesList;
+    this.listOfCategories = serviceSearchBooks.categoriesList;
+  }
+  applyRemoveFilter(filterForm: NgForm): void {
+    this.serviceSearchBooks.filterBooks(filterForm.value).subscribe((data) => {
+      console.log(data);
+    });
   }
   ngOnInit(): void {}
 }

@@ -1,6 +1,7 @@
 <div class="content">
   <app-category-footer-utility
     [buttonFilter]="showButton"
+    [numberOfBooks]="listOfBooks.length"
     (showHideFilters)="showHideFilters($event)"
   ></app-category-footer-utility>
   <div
@@ -24,9 +25,13 @@
       fxFlex.xs="100%"
       fxFlex.sm="50%"
       fxFlex.md="45%"
-      *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+      *ngFor="let book of listOfBooks; let index = index"
     >
-      <app-card-book [index]="num" [expanded]="showFilters"></app-card-book>
+      <app-card-book
+        [index]="index"
+        [book]="book"
+        [expanded]="showFilters"
+      ></app-card-book>
     </div>
   </div>
 </div>
