@@ -1,5 +1,8 @@
 export const CONSTANTS = {
   apis: {
-    getBooksByCategory: 'http://localhost:3000/books',
+    books: {
+      getBooksByCategory: 'http://localhost:3000/books',
+      searchBookByTitleOrAuthor: 'http://localhost:3000/books/search',
+    },
   },
 };

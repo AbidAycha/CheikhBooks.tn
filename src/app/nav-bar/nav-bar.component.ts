@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { BooksServiceService } from '../Services/books-service.service';
 
 @Component({
@@ -28,8 +29,10 @@ export class NavBarComponent implements OnInit {
   onchange() {
     this.expanded = !this.expanded;
   }
-  navigateSearch(): void {
-    this.router.navigate(['search/result']);
+  searchBook(searchForm: NgForm): void {
+    this.router.navigate(['search/result/'], {
+      queryParams: { search: searchForm.value.search },
+    });
   }
 
   changeColorhome() {

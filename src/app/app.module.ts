@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +28,7 @@ import { SearchResultSidebarComponent } from './books-page/search-result-sidebar
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,10 +58,13 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
+    HttpClientModule,
     MatListModule,
     FlexLayoutModule,
     GoogleMapsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

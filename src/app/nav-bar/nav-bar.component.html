@@ -5,9 +5,17 @@
         <span> ChikhBooks &nbsp;&nbsp; </span>
       </a>
 
-      <form class="search_form">
-        <input type="text" class="form-control" placeholder="Search here..." />
-        <button class="" type="submit" (click)="navigateSearch()">
+      <form class="search_form" #searchForm="ngForm">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search here..."
+          ngModel
+          name="search"
+          required
+          #searchInput="ngModel"
+        />
+        <button type="submit" (click)="searchBook(searchForm)">
           <i class="fa fa-search" aria-hidden="true"></i>
         </button>
       </form>
