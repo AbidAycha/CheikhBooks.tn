@@ -5,14 +5,38 @@
 >
   <mat-card-header> </mat-card-header>
   <mat-card-content>
-    <div [ngClass]="isHover ? 'book-image-wrapper-div-hovered' : 'book-image-wrapper-div-not-hovered'">
+    <div
+      [ngClass]="
+        isHover
+          ? 'book-image-wrapper-div-hovered'
+          : 'book-image-wrapper-div-not-hovered'
+      "
+    >
       <img
-        mat-card-image
-        src="./../assets/books/book.jpg"
-        [ngClass]="isHover ? 'hovered-book-image book-image' : 'not-hovered-book-image book-image'"
+        data-toggle="tooltip"
+        data-placement="right"
+        [title]=[book.title]
+        [src]="[book.image]"
+        [ngClass]="
+          isHover
+            ? 'hovered-book-image book-image'
+            : 'not-hovered-book-image book-image'
+        "
         [ngStyle]="{
-          height: expanded? index % 2 == 0 ? '60vh' : '62vh':index % 2 == 0 ? '62vh' : '60vh',
-          'margin-top': expanded?index % 2 == 0 ? '-2vh' : '0vh':index % 2 == 0 ? '0vh' : '-2vh'
+          height: expanded
+            ? index % 2 == 0
+              ? '60vh'
+              : '62vh'
+            : index % 2 == 0
+            ? '62vh'
+            : '60vh',
+          'margin-top': expanded
+            ? index % 2 == 0
+              ? '0vh'
+              : '-2vh'
+            : index % 2 == 0
+            ? '-2vh'
+            : '0vh'
         }"
       />
     </div>
@@ -22,12 +46,12 @@
         class="module-promo-title"
         [ngClass]="isHover ? 'underlined-hovered-text-book' : 'my_class4'"
       >
-        All the Quiet Places
+        {{ book.title }}
       </h4>
-      <p class="module-promo-subtitle">A Novel</p>
+      <p class="module-promo-subtitle">{{ book.type }}</p>
       <p class="module-promo-author">
-        <span class="module-promo-role">by (author)</span>
-        Brian Thomas Isaac
+        <span class="module-promo-role">by {{ book.author }}</span>
+        <span class="module-price-role">{{ book.price }} Dinars</span>
       </p>
     </div>
   </mat-card-content>

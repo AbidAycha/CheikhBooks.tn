@@ -98,12 +98,12 @@
                 ></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" routerLink="/category/novel">Novel</a>
-                <a class="dropdown-item"  routerLink="/category/science">Science</a>
-                <a class="dropdown-item"  routerLink="/category/history">History</a>
-                <a class="dropdown-item"  routerLink="/category/biography">Biography</a>
-                <a class="dropdown-item"  routerLink="/category/adventure">Adventure</a>
-                <a class="dropdown-item"  routerLink="/category/fantasy">Fantasy</a>
+                <a
+                  *ngFor="let category of listOfCategories; let index = index"
+                  class="dropdown-item"
+                  [routerLink]="['/category/', index + 1]"
+                  >{{ category }}</a
+                >
               </div>
             </span>
           </li>
