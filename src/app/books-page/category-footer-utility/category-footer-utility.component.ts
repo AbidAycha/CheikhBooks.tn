@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CategoryFooterUtilityComponent implements OnInit {
   showHideFilterStatus: boolean;
   @Input() buttonFilter = false;
+  @Input() numberOfBooks=0;
   @Output() showHideFilters = new EventEmitter<boolean>();
 
   constructor() {
