@@ -6,41 +6,41 @@
   <mat-card-header> </mat-card-header>
   <mat-card-content>
     <a href="#">
-    <div
-      [ngClass]="
-        isHover
-          ? 'book-image-wrapper-div-hovered'
-          : 'book-image-wrapper-div-not-hovered'
-      "
-    >
-      <img
-        data-toggle="tooltip"
-        data-placement="right"
-        [title]=[book.title]
-        [src]="[book.image]"
+      <div
         [ngClass]="
           isHover
-            ? 'hovered-book-image book-image'
-            : 'not-hovered-book-image book-image'
+            ? 'book-image-wrapper-div-hovered'
+            : 'book-image-wrapper-div-not-hovered'
         "
-        [ngStyle]="{
-          height: expanded
-            ? index % 2 == 0
-              ? '60vh'
-              : '62vh'
-            : index % 2 == 0
-            ? '62vh'
-            : '60vh',
-          'margin-top': expanded
-            ? index % 2 == 0
-              ? '0vh'
-              : '-2vh'
-            : index % 2 == 0
-            ? '-2vh'
-            : '0vh'
-        }"
-      />
-    </div>
+      >
+        <img
+          data-toggle="tooltip"
+          data-placement="right"
+          [title]="[book.title]"
+          [src]="[book.image]"
+          [ngClass]="
+            isHover
+              ? 'hovered-book-image book-image'
+              : 'not-hovered-book-image book-image'
+          "
+          [ngStyle]="{
+            height: expanded
+              ? index % 2 == 0
+                ? bookHeight.toString().concat('vh')
+                : (bookHeight + 2).toString().concat('vh')
+              : index % 2 == 0
+              ? (bookHeight + 2).toString().concat('vh')
+              : bookHeight.toString().concat('vh'),
+            'margin-top': expanded
+              ? index % 2 == 0
+                ? '0vh'
+                : '-2vh'
+              : index % 2 == 0
+              ? '-2vh'
+              : '0vh'
+          }"
+        />
+      </div>
     </a>
     <div class="module-promo-copy">
       <h4
