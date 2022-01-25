@@ -1,57 +1,47 @@
 <div class="container">
-  <div class="table-wrapper">
-    <div class="table-title">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2><b>Order</b> table</h2>
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2><b>Order</b> table</h2>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new" (click)="add()"><i class="fa fa-plus"></i> Add
+                        New</button>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-info add-new" (click)="add()">
-            <i class="fa fa-plus"></i> Add New
-          </button>
-        </div>
-      </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Total</th>
+                    <th>Shipped</th>
+                    <th>Date</th>
+                    <th>User ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders; let i = index">
+                    <td>{{order.id}}</td>
+                    <td>{{order.total}}</td>
+                    <td>
+                        <span [ngClass]="
+                            !order.shipped ? 'status text-danger' : 'status text-success'
+                          "><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        {{ order.shipped ? "yes" : "no" }}
+                    </td>
+                    <td>{{order.date | date:'shortDate'}}</td>
+                    <td>{{order.user.id}}</td>
+                    <td>
+                        <a class="edit" title="Edit" data-toggle="tooltip" (click)="edit(i,order)"><i
+                                class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="delete(i,order)"><i
+                                class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Total</th>
-          <th>Shipped</th>
-          <th>Date</th>
-          <th>User ID</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let field of orders; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>225</td>
-          <td>
-            <span
-              [ngClass]="
-                !field.shipped ? 'status text-danger' : 'status text-success'
-              "
-              ><i class="fa fa-circle" aria-hidden="true"></i
-            ></span>
-            {{ field.shipped ? "yes" : "no" }}
-          </td>
-          <td>01-01-2021</td>
-          <td>5</td>
-          <td>
-            <a class="edit" title="Edit" data-toggle="tooltip" (click)="edit(i)"
-              ><i class="material-icons">&#xE254;</i></a
-            >
-            <a
-              class="delete"
-              title="Delete"
-              data-toggle="tooltip"
-              (click)="delete(i)"
-              ><i class="material-icons">&#xE872;</i></a
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
