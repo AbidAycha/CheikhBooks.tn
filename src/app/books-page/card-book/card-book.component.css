@@ -76,7 +76,14 @@
   color: #222;
   font-size: 0.75rem;
   font-style: italic;
+  display: flex;
+  flex-direction: column;
 }
 .module-promo-copy{
-  margin-top: 3vh;
+  margin-top: 4vh;
+}
+.module-price-role{
+  color: #063547;
+  font-weight: bold;
+  font-size:medium;
 }

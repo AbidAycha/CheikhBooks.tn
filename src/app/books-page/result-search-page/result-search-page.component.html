@@ -1,0 +1,37 @@
+<div class="content">
+  <app-category-footer-utility
+    [buttonFilter]="showButton"
+    [numberOfBooks]="listOfBooks.length"
+    (showHideFilters)="showHideFilters($event)"
+  ></app-category-footer-utility>
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="1.1% grid"
+    class="search-result-content-container"
+  >
+    <div
+      fxFlex="10%"
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex.md="40%"
+      [ngStyle]="{ 'margin-right': showFilters ? '15%' : '0%' }"
+      class="side-bar-result-search"
+      *ngIf="showFilters"
+    >
+      <app-search-result-sidebar></app-search-result-sidebar>
+    </div>
+    <div
+      [fxFlex]="showHideFilters ? '25%' : '30%'"
+      fxFlex.xs="100%"
+      fxFlex.sm="50%"
+      fxFlex.md="45%"
+      *ngFor="let book of listOfBooks; let index = index"
+    >
+      <app-card-book
+        [index]="index"
+        [book]="book"
+        [expanded]="showFilters"
+      ></app-card-book>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -29,6 +29,11 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
 import {ErrorInterceptor} from './interceptors/error.interceptor';
 import {HttpServiceInterceptor} from './interceptors/http-service.interceptor';
+import { ResultSearchPageComponent } from './books-page/result-search-page/result-search-page.component';
+import { SearchResultSidebarComponent } from './books-page/search-result-sidebar/search-result-sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -49,14 +54,19 @@ import {HttpServiceInterceptor} from './interceptors/http-service.interceptor';
     CategoryFooterUtilityComponent,
     LoginComponent,
     //RegistrationComponent
+    ResultSearchPageComponent,
+    SearchResultSidebarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
+    HttpClientModule,
+    MatListModule,
     FlexLayoutModule,
     GoogleMapsModule,    
     ReactiveFormsModule,
@@ -67,6 +77,11 @@ import {HttpServiceInterceptor} from './interceptors/http-service.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    GoogleMapsModule,
+    MatCheckboxModule,
+    FormsModule
+  ]
 })
-export class AppModule { }
+export class AppModule {}

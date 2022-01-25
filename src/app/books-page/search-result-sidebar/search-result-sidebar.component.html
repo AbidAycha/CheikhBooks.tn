@@ -1,0 +1,19 @@
+<form id="form-filter-categories" [hidden]="false" #filterForm="ngForm">
+  <div
+    class="form-check item-category-filter-search"
+    *ngFor="let category of listOfCategories; let index = index"
+  >
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [value]="index"
+      id="flexCheckDefault"
+      ngModel
+      [name]="(index+1).toString()"
+      (change)="applyRemoveFilter(filterForm)"
+    />
+    <label class="form-check-label" for="flexCheckDefault">
+      {{ category }}
+    </label>
+  </div>
+</form>
