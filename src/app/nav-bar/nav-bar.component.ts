@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { BooksServiceService } from '../Services/books-service.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,14 +18,23 @@ export class NavBarComponent implements OnInit {
   colorbasket = 'white';
   coloruser = 'white';
   listOfCategories: Array<String>;
+
+  isLoggedIn: boolean = false;
+
   constructor(
     private router: Router,
-    private booksService: BooksServiceService
+    private booksService: BooksServiceService,
+    private authenticationService: AuthenticationService
   ) {
     this.listOfCategories = this.booksService.categoriesList;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authenticationService.isLoggedIn
+    .subscribe((data: boolean) => {
+      this.isLoggedIn = data;
+    });
+  }
 
   onchange() {
     this.expanded = !this.expanded;
@@ -70,5 +80,12 @@ export class NavBarComponent implements OnInit {
     this.colorcategories = 'white';
     this.colorbasket = 'white';
     this.coloruser = '#44b89d';
+  }
+  isLoggingIn() {
+    this.authenticationService.loggingIn.next(true);
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 }

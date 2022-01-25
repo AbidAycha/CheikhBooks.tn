@@ -33,11 +33,11 @@
                 type="text"
                 class="form-control rounded-left"
                 placeholder="Username"
-                formControlName="username"
+                formControlName="email"
                 required
               />
             </div>
-            <div class="alert alert-danger" role="alert" *ngIf="username?.touched && username?.invalid">
+            <div class="alert alert-danger" role="alert" *ngIf="email?.touched && email?.invalid">
               Username is required
             </div>
 
@@ -55,7 +55,7 @@
                 [type]="showPassword ? 'password' : 'text'"
                 required
               />
-            </div>            
+            </div>
             <div class="alert alert-danger" role="alert" *ngIf="password?.touched && password?.invalid">
               Password is required
             </div>
@@ -64,7 +64,7 @@
               <div class="w-100">
                 <label class="checkbox-wrap checkbox-primary mb-0"
                   >Show Password
-                  <input type="checkbox" [checked]="showPassword"/>
+                  <input type="checkbox" [checked]="showPassword" (click)="showPassword = !showPassword"/>
                   <span class="checkmark"></span>
                 </label>
               </div>
