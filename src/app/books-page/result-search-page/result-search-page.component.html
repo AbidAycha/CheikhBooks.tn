@@ -18,7 +18,10 @@
       class="side-bar-result-search"
       *ngIf="showFilters"
     >
-      <app-search-result-sidebar></app-search-result-sidebar>
+      <app-search-result-sidebar
+        (applyFilter)="applyRemoveFilter($event)"
+        [search]="search"
+      ></app-search-result-sidebar>
     </div>
     <div
       [fxFlex]="showHideFilters ? '25%' : '30%'"
@@ -30,6 +33,7 @@
       <app-card-book
         [index]="index"
         [book]="book"
+        [bookHeight]=60
         [expanded]="showFilters"
       ></app-card-book>
     </div>

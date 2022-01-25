@@ -11,11 +11,13 @@ export class CardBookComponent implements OnInit {
   @Input() index: number;
   @Input() expanded: boolean;
   @Input() book: BookDto;
+  @Input() bookHeight:number;
   constructor() {
     this.isHover = false;
     this.index = 0;
     this.expanded = false;
     this.book = new BookDto();
+    this.bookHeight=0;
   }
 
   ngOnInit(): void {}

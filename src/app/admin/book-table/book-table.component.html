@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2><b>Book</b> table</h2>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-info add-new" (click)="add()">
+            <i class="fa fa-plus"></i> Add New
+          </button>
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Language</th>
+          <th>Price</th>
+          <th>Type</th>
+          <th>Sold</th>
+          <th>Is Valid</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books; let i = index">
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.nbrPages }}</td>
+          <td>{{ book.language }}</td>
+          <td>{{ book.price }}</td>
+          <td>{{ book.type }}</td>
+          <td>
+            <span
+              [ngClass]="
+                book.sold ? 'status text-danger' : 'status text-success'
+              "
+              ><i class="fa fa-circle" aria-hidden="true"></i
+            ></span>
+            {{ book.sold ? "Sold" : "On Sale" }}
+          </td>
+          <td>
+            <span
+              [ngClass]="
+                !book.isValid ? 'status text-danger' : 'status text-success'
+              "
+              ><i class="fa fa-circle" aria-hidden="true"></i
+            ></span>
+            {{ book.isValid ? "Valid" : "Not Valid" }}
+          </td>
+          <td>
+            <a
+              class="edit"
+              title="Edit"
+              data-toggle="tooltip"
+              (click)="edit(i, book)"
+              ><i class="material-icons">&#xE254;</i></a
+            >
+            <a
+              class="delete"
+              title="Delete"
+              data-toggle="tooltip"
+              (click)="delete(i, book)"
+              ><i class="material-icons">&#xE872;</i></a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
