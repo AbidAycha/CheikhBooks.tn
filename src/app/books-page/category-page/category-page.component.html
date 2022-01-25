@@ -1,5 +1,7 @@
 <div class="content">
-  <app-category-footer-utility [numberOfBooks]="listOfBooksByCategory.length"></app-category-footer-utility>
+  <app-category-footer-utility
+    [numberOfBooks]="listOfBooksByCategory.length"
+  ></app-category-footer-utility>
   <div fxLayout="row wrap" fxLayoutGap="1.1% grid">
     <div
       fxFlex="25%"
@@ -8,7 +10,11 @@
       fxFlex.md="45%"
       *ngFor="let book of listOfBooksByCategory; let index = index"
     >
-      <app-card-book [index]="index" [book]="book"></app-card-book>
+      <app-card-book
+        [index]="index"
+        [bookHeight]="60"
+        [book]="book"
+      ></app-card-book>
     </div>
   </div>
 </div>
