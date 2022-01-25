@@ -17,12 +17,21 @@ export class AuthenticationService {
         if (response && response.token) {
           localStorage.setItem('authToken', response.token);
           // nkharej l role m token
+          this.setUserRole();
           const role ='user';
           localStorage.setItem('role', role);        }
         return response;
       }));
   }
 
+  setUserRole() {
+    if (localStorage.getItem('authToken')) {
+      const decodeUserDetails = JSON.parse(atob(localStorage.getItem('authToken')!.split('.')[1]));
+      
+      localStorage.setItem('role', decodeUserDetails.role);
+    }
+  }
+  
   logout() {
     localStorage.clear();
   }
