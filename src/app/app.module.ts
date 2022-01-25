@@ -39,6 +39,8 @@ import { NavbarComponent } from './admin/navbar/navbar.component';
 import { BookTableComponent } from './admin/book-table/book-table.component';
 import { OrderTableComponent } from './admin/order-table/order-table.component';
 import { UserTableComponent } from './admin/user-table/user-table.component';
+import { ProfileComponent } from './profile/profile/profile.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { UserTableComponent } from './admin/user-table/user-table.component';
     UserTableComponent,
     BookTableComponent,
     OrderTableComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
