@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { BooksServiceService } from 'src/app/Services/books-service.service';
 
 @Component({
   selector: 'app-book-table',
@@ -7,22 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private serviceBook: BooksServiceService) { }
 
   ngOnInit(): void {
+    this.load()
   }
 
-  books: Array<any> = [1,2,3];
+  books: any = [];
   newAttribute: any = {};
+
+  load() {
+    this.serviceBook
+      .getBooks()
+      .subscribe((data) => {
+        this.books = data;
+      });
+  }
 
   add() {
     this.books.push(this.newAttribute)
     this.newAttribute = {};
   }
-  edit(index:number) {
-
+  edit(index: number, book: any) {
+    //edit book
+    this.books[index] = book;
   }
-  delete(index:number) {
+  delete(index: number, book: any) {
+    //delete book
     this.books.splice(index, 1);
   }
 
