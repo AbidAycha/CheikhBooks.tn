@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,10 @@ import { InfoSectionComponent } from './home/info-section/info-section.component
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CategoryFooterUtilityComponent } from './books-page/category-footer-utility/category-footer-utility.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegistrationComponent } from './components/auth/registration/registration.component';
+import {ErrorInterceptor} from './interceptors/error.interceptor';
+import {HttpServiceInterceptor} from './interceptors/http-service.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,9 @@ import { CategoryFooterUtilityComponent } from './books-page/category-footer-uti
     ContactSectionComponent,
     InfoSectionComponent,
     FooterComponent,
-    CategoryFooterUtilityComponent
+    CategoryFooterUtilityComponent,
+    LoginComponent,
+    //RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +58,15 @@ import { CategoryFooterUtilityComponent } from './books-page/category-footer-uti
     MatToolbarModule,
     MatButtonModule,
     FlexLayoutModule,
-    GoogleMapsModule
+    GoogleMapsModule,    
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [    
+    { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
