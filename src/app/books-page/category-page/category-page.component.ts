@@ -12,7 +12,9 @@ export class CategoryPageComponent implements OnInit {
   constructor(
     private bookCategoryService: BooksServiceService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.listOfBooksByCategory = [];
+  }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.bookCategoryService
