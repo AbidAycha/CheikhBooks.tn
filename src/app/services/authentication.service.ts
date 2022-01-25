@@ -11,8 +11,8 @@ export class AuthenticationService {
     private http: HttpClient) { }
 
   login(user: any) {
-    const link = 'localhost:3000/login';
-    return this.http.post<any>(link, user)
+    const link = 'http://localhost:3000/login';
+    return this.http.post<any>(link, {email:'missajaziri@gmail.com',password:user.password})
       .pipe(map(response => {
         if (response && response.token) {
           localStorage.setItem('authToken', response.token);
