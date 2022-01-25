@@ -12,22 +12,20 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
-                    <th>Birthday</th>
-                    <th>Phone</th>
+                    <th>Total</th>
+                    <th>Shipped</th>
+                    <th>Date</th>
+                    <th>User ID</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let field of orders; let i = index">
                     <td>{{i+1}}</td>
-                    <td>John</td>
-                    <td>Siala</td>
-                    <td>email@lol.tn</td>
+                    <td>225</td>
+                    <td><span class="status text-danger">&bull;</span> No</td>
                     <td>01-01-2021</td>
-                    <td>23121833</td>
+                    <td>5</td>
                     <td>
                         <a class="edit" title="Edit" data-toggle="tooltip" (click)="edit(i)"><i class="material-icons">&#xE254;</i></a>
                         <a class="delete" title="Delete" data-toggle="tooltip" (click)="delete(i)"><i class="material-icons">&#xE872;</i></a>

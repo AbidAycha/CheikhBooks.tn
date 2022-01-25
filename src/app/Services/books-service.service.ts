@@ -20,6 +20,11 @@ export class BooksServiceService {
     this.listOfSelectedFilters = '';
   }
 
+  getBooks(): Observable<Object> {
+    let params = new HttpParams();
+    return this.http.get(CONSTANTS.apis.books.getBooksByCategory);
+  }
+
   getBooksByCategory(categoryId: string): Observable<Object> {
     let params = new HttpParams();
     params = params.append('genre', categoryId);
