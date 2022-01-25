@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'admin',
-
     // component: HomeComponent
     children: [
       { path: 'users', component: UserTableComponent },

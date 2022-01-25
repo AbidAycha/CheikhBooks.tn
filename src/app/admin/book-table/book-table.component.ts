@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { BooksServiceService } from 'src/app/Services/books-service.service';
+import { BooksServiceService } from 'src/app/services/books-service.service';
 
 @Component({
   selector: 'app-book-table',

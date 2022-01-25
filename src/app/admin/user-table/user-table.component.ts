@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/Services/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-table',
@@ -20,9 +20,7 @@ export class UserTableComponent implements OnInit {
 
   load() {
     console.log("loadingggggggggg")
-    this.service
-      .getUsers()
-      .subscribe((data) => {
+    this.service.getUsers().subscribe((data) => {
         this.users = data;
       }
       );

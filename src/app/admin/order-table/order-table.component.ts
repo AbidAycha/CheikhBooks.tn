@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OrderService } from 'src/app/Services/order.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order-table',

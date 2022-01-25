@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { BooksServiceService } from 'src/app/Services/books-service.service';
+import { BooksServiceService } from 'src/app/services/books-service.service';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
