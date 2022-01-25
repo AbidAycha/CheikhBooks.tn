@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2><b>Book</b> table</h2></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new" (click)="add()"><i class="fa fa-plus"></i> Add New</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>Pages</th>
+                    <th>Language</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Sold</th>
+                    <th>Is Valid</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let field of books; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>title</td>
+                    <td>author</td>
+                    <td>Pages</td>
+                    <td>Language</td>
+                    <td>Price</td>
+                    <td>Type</td>
+                    <td>Sold</td>
+                    <td>Is Valid</td>
+                    <td>
+                        <a class="edit" title="Edit" data-toggle="tooltip" (click)="edit(i)"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="delete(i)"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>     

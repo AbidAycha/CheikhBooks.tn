@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2><b>Order</b> table</h2></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new" (click)="add()"><i class="fa fa-plus"></i> Add New</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let field of orders; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>John</td>
+                    <td>Siala</td>
+                    <td>email@lol.tn</td>
+                    <td>01-01-2021</td>
+                    <td>23121833</td>
+                    <td>
+                        <a class="edit" title="Edit" data-toggle="tooltip" (click)="edit(i)"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="delete(i)"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>     
