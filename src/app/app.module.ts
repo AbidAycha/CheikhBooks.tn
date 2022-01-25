@@ -34,6 +34,8 @@ import { SearchResultSidebarComponent } from './books-page/search-result-sidebar
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
+import { AdminComponent } from './components/Admin/admin/admin.component';
+import { NavbarComponent } from './components/Admin/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import {MatListModule} from '@angular/material/list';
     //RegistrationComponent
     ResultSearchPageComponent,
     SearchResultSidebarComponent,
+    AdminComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
