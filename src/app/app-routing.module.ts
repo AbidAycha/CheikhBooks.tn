@@ -9,6 +9,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserTableComponent } from './admin/user-table/user-table.component';
 import { BookTableComponent } from './admin/book-table/book-table.component';
 import { OrderTableComponent } from './admin/order-table/order-table.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { ProfileComponent } from './profile/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'category/:chosenCategory', component: CategoryPageComponent },
   { path: 'search/result', component: ResultSearchPageComponent },
   { path: 'user/login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/edit', component: ProfileEditComponent },
   { path: 'not-found', component: PageNotFoundComponent },
 ];
 
