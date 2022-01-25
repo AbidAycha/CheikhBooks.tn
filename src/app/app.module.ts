@@ -34,8 +34,8 @@ import { SearchResultSidebarComponent } from './books-page/search-result-sidebar
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
-import { AdminComponent } from './components/Admin/admin/admin.component';
-import { NavbarComponent } from './components/Admin/navbar/navbar.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { NavbarComponent } from './admin/navbar/navbar.component';
 import { BookTableComponent } from './admin/book-table/book-table.component';
 import { OrderTableComponent } from './admin/order-table/order-table.component';
 import { UserTableComponent } from './admin/user-table/user-table.component';
