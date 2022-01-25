@@ -12,7 +12,7 @@ export class OrderTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  orders: Array<any> = [1,2,3];
+  orders: Array<any> = [{shipped:true},2,3];
   newAttribute: any = {};
 
   add() {

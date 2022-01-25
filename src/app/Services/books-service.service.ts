@@ -40,7 +40,7 @@ export class BooksServiceService {
     });
   }
 
-  filterBooks(filters: Object): Observable<Object> {
+  filterBooks(filters: Object,search:string): Observable<Object> {
     this.listOfSelectedFilters = '';
     for (const [key, value] of Object.entries(filters)) {
       if (value == true) {
@@ -48,7 +48,8 @@ export class BooksServiceService {
       }
     }
     let queryParams = new HttpParams();
-    queryParams = queryParams.append('genre', this.listOfSelectedFilters);
+    queryParams = queryParams.append('genre', this.listOfSelectedFilters.substring(1));
+    queryParams = queryParams.append('name', search);
     return this.http.get(CONSTANTS.apis.books.searchBookByTitleOrAuthor, {
       params: queryParams,
     });
