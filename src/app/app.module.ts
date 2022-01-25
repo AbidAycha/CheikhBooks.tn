@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -23,12 +25,17 @@ import { InfoSectionComponent } from './home/info-section/info-section.component
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { CategoryFooterUtilityComponent } from './books-page/category-footer-utility/category-footer-utility.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegistrationComponent } from './components/auth/registration/registration.component';
+import {ErrorInterceptor} from './interceptors/error.interceptor';
+import {HttpServiceInterceptor} from './interceptors/http-service.interceptor';
 import { ResultSearchPageComponent } from './books-page/result-search-page/result-search-page.component';
 import { SearchResultSidebarComponent } from './books-page/search-result-sidebar/search-result-sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule} from '@angular/material/list';
-import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/Admin/admin/admin.component';
+import { NavbarComponent } from './components/Admin/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +54,12 @@ import { HttpClientModule } from '@angular/common/http';
     InfoSectionComponent,
     FooterComponent,
     CategoryFooterUtilityComponent,
+    LoginComponent,
+    //RegistrationComponent
     ResultSearchPageComponent,
     SearchResultSidebarComponent,
+    AdminComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,12 +72,20 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatListModule,
     FlexLayoutModule,
+    GoogleMapsModule,    
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [    
+    { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
+  bootstrap: [
+    AppComponent,
     GoogleMapsModule,
     MatCheckboxModule,
-    FormsModule,
     FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+  ]
 })
 export class AppModule {}
