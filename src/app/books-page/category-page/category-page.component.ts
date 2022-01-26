@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { BooksServiceService } from 'src/app/services/books-service.service';
-
+import { BookDto } from 'src/app/DTO/book.dto';
 @Component({
   selector: 'app-category-page',
   templateUrl: './category-page.component.html',
@@ -11,7 +11,8 @@ export class CategoryPageComponent implements OnInit {
   listOfBooksByCategory: any;
   constructor(
     private bookCategoryService: BooksServiceService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private bookService: BooksServiceService
   ) {}
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -21,5 +22,8 @@ export class CategoryPageComponent implements OnInit {
           this.listOfBooksByCategory = data;
         });
     });
+  }
+  viewBookDetails(book: BookDto) {
+    this.bookService.viewBookDetails(book);
   }
 }

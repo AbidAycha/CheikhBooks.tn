@@ -1,4 +1,6 @@
 export class BookDto {
+  id: number;
+
   title: string;
 
   author: string;
@@ -17,6 +19,7 @@ export class BookDto {
 
   type: string;
   constructor() {
+    this.id = 0;
     this.title = '';
     this.author = '';
     this.description = '';

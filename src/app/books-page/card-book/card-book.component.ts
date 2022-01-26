@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BookDto } from 'src/app/DTO/book.dto';
-
+import { BooksServiceService } from 'src/app/services/books-service.service';
 @Component({
   selector: 'app-card-book',
   templateUrl: './card-book.component.html',
@@ -12,12 +12,13 @@ export class CardBookComponent implements OnInit {
   @Input() expanded: boolean;
   @Input() book: BookDto;
   @Input() bookHeight:number;
-  constructor() {
+  constructor(private bookService: BooksServiceService) {
     this.isHover = false;
     this.index = 0;
     this.expanded = false;
     this.book = new BookDto();
     this.bookHeight=0;
+    
   }
 
   ngOnInit(): void {}
@@ -26,5 +27,9 @@ export class CardBookComponent implements OnInit {
   }
   mouseEnterAction(): void {
     this.isHover = true;
+  }
+
+  viewBookDetails(book: BookDto) {
+    this.bookService.viewBookDetails(book);
   }
 }

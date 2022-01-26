@@ -3,10 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CONSTANTS } from '../../Config/constants.config';
 import { BookDto } from '../DTO/book.dto'; 
+import {Router} from "@angular/router";
+
 @Injectable({
   providedIn: 'root',
 })
 export class BooksServiceService {
+  private url = `http://localhost:3000/books`;
   categoriesList = [
     'Novel',
     'Science',
@@ -16,7 +19,7 @@ export class BooksServiceService {
     'Fantasy',
   ];
   listOfSelectedFilters: string;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.listOfSelectedFilters = '';
   }
 
@@ -24,7 +27,10 @@ export class BooksServiceService {
     let params = new HttpParams();
     return this.http.get(CONSTANTS.apis.books.getBooksByCategory);
   }
-
+  getBookById(id: number): Observable<BookDto> {
+      const urlById = `${this.url}/${id}`;
+      return this.http.get<BookDto>(urlById);
+  } 
   getBooksByCategory(categoryId: string): Observable<Object> {
     let params = new HttpParams();
     params = params.append('genre', categoryId);
@@ -55,4 +61,25 @@ export class BooksServiceService {
       params: queryParams,
     });
   }
+  viewBookDetails(book: BookDto) {
+    this.router.navigate(['/books', book.id], {
+      queryParams: {
+        Name: book.title
+      }
+    })
+  }
+  /**pushToCart(productId: number, quantity: number) {
+    if (this.authService.cartItem) {
+      this.insertToCart(productId, this.authService.cartItem.id, quantity)
+        .subscribe(res => {
+          this.router.navigate(['/cart'],
+            {
+              queryParams: {
+                Updated: true
+              }
+            })
+        })
+    }
+  }
+**/
 }

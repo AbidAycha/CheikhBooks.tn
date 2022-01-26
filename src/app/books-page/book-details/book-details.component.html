@@ -1,0 +1,52 @@
+<div class="container-fluid " >
+    <div class="row justify-content-md-center" style="margin: 100px">
+      <div class="col-md-3" *ngIf="book && book.image">
+        <img [src]="book.image" alt="" class="figure-img" style="width:300px;height:400px;">
+    </div>
+      <div class="col-md-6" *ngIf="book">
+      
+        <h1 style=" font-family: 'Anton', sans-serif;">{{book.title}}</h1>
+        <div style=" font-family: 'Anton', sans-serif;">
+            <p style="font-size: 15px;"> By {{book.author}} </p>
+        </div>
+        <hr>
+    
+        <h2 style=" font-family: 'Anton', sans-serif;">{{book.price}} DT </h2>
+        
+        <p class="lead" style=" font-family: 'Anton', sans-serif; font-size: 20px;">
+            {{book.description}}
+        </p>
+        
+        <p class="lead" style=" font-family: 'Anton', sans-serif; font-size: 20px;">
+            Language: {{book.language}}
+        </p>
+        <p class="lead" style=" font-family: 'Anton', sans-serif; font-size: 20px;">
+            Number of pages: {{book.nbrPages}}
+        </p>
+        <p class="lead" style=" font-family: 'Anton', sans-serif; font-size: 20px;">
+            Type: {{book.type}}
+        </p>
+        
+        <!--- <p class="lead" *ngIf="authService.isLoggedIn() && !book.addedToCart">
+          <app-add-to-cart [inputProduct]="book"
+                           *ngIf="authService.isLoggedIn() && !book.addedToCart"></app-add-to-cart>
+        </p>
+        <p class="lead text-warning" *ngIf="authService.isLoggedIn() && book.addedToCart">
+          You already added this book into your cart
+          <a class="btn btn-primary" routerLink="/cart">
+            Check Cart
+          </a>
+        </p>
+        <p class="lead text-warning" *ngIf="!authService.isLoggedIn()">
+          You should be logged in to add this book into your cart &nbsp;
+          <button class="btn btn-outline-warning" routerLink="/auth/login">
+            Login
+          </button>
+        </p>
+        <p class="lead">
+          <button class="btn btn-outline-primary" routerLink="/categories">Back to categories</button>
+        </p>--->
+      </div>
+    </div>
+  </div>
+  

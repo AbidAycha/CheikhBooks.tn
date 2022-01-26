@@ -11,7 +11,7 @@ import { BookTableComponent } from './admin/book-table/book-table.component';
 import { OrderTableComponent } from './admin/order-table/order-table.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile/profile.component';
-
+import { BookDetailsComponent } from './books-page/book-details/book-details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -25,6 +25,9 @@ const routes: Routes = [
     ],
   },
   { path: 'category/:chosenCategory', component: CategoryPageComponent },
+  {
+    path: 'books/:bookId', component: BookDetailsComponent
+  },
   { path: 'search/result', component: ResultSearchPageComponent },
   { path: 'user/login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },

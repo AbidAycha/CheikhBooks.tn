@@ -41,6 +41,8 @@ import { OrderTableComponent } from './admin/order-table/order-table.component';
 import { UserTableComponent } from './admin/user-table/user-table.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { BookDetailsComponent } from './books-page/book-details/book-details.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
     BookTableComponent,
     OrderTableComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    BookDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
