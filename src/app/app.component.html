@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <app-nav-bar> </app-nav-bar>
+=======
+<app-nav-bar *ngIf="!isLoggingIn"> </app-nav-bar>
+>>>>>>> 9a17baf712cf835530b1ca4944cb05355ecc469c
 
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer *ngIf="!isLoggingIn"></app-footer>
 
 

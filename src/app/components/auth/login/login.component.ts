@@ -12,7 +12,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class LoginComponent implements OnInit , OnDestroy {
 
   showPassword = true;
-  userId: number = 0;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -21,12 +20,12 @@ export class LoginComponent implements OnInit , OnDestroy {
     private authenticationService: AuthenticationService) { }
 
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
 
-  get username() {
-    return this.loginForm.get('username');
+  get email() {
+    return this.loginForm.get('email');
   }
 
   get password() {
@@ -51,6 +50,7 @@ export class LoginComponent implements OnInit , OnDestroy {
               invalidLogin: true
             });
           });
+          //console.log(localStorage.getItem('role'));
     }
   }
 

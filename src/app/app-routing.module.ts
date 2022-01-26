@@ -29,6 +29,9 @@ const routes: Routes = [
     path: 'books/:bookId', component: BookDetailsComponent
   },
   { path: 'search/result', component: ResultSearchPageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'not-found', component: PageNotFoundComponent },
+
   { path: 'user/login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: ProfileEditComponent },
