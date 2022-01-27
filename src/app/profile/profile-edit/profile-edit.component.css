@@ -1,0 +1,26 @@
+.main {
+    margin: 80px 500px;
+}
+.form-group {
+    margin: 20px 0px;
+}
+label {
+    margin-bottom: 5px;
+}
+
+button{
+    display: inline-block;
+    padding: 12px 45px;
+    background-color: #44b89d;
+    color: #ffffff;
+    border: 1px solid #44b89d;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 200px;
+    border-radius: 45px;
+    margin-left: 295px;
+  }
+  button:hover {
+    background-color: transparent;
+    color: #44b89d;
+  }
