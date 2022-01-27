@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CONSTANTS } from 'src/Config/constants.config';
+import { UserDTO } from '../DTO/user.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<Object> {
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYXRoYS5zaWFsYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDMxMDg2OTgsImV4cCI6MTY0MzExMjI5OH0.z-hGz6-6INh7Ed-IReKJUGROQN_7JkDPd88Gxv7UsPI";
+    let token = localStorage.getItem('authToken');
     const headers = new HttpHeaders();
     headers.append('Authorization', 'Bearer ' + token);
     return this.http.get(CONSTANTS.apis.users.getUsers, {
@@ -20,10 +21,26 @@ export class UserService {
   }
 
   getUser(): Observable<Object> {
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYXRoYS5zaWFsYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDMxMTQzMzgsImV4cCI6MTY0MzExNzkzOH0.b04-5qve2gdiKbTg_gFVNUWM37lb8JZg53gFQro1bz8";
+    let token = localStorage.getItem('authToken');
     const headers = new HttpHeaders();
     headers.append('Authorization', 'Bearer ' + token);
     return this.http.get(CONSTANTS.apis.users.getUser, {
+      headers
+    });
+  }
+  editUser(user: UserDTO): Observable<Object> {
+    let token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this.http.patch(CONSTANTS.apis.users.editUser + "/" + user.id, user, {
+      headers
+    });
+  }
+  deleteUser(id: number): Observable<Object> {
+    let token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders();
+    headers.append('Authorization', 'Bearer ' + token);
+    return this.http.delete(CONSTANTS.apis.users.deleteUser + "/" + id, {
       headers
     });
   }

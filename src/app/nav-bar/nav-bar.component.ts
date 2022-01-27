@@ -30,10 +30,9 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authenticationService.isLoggedIn
-    .subscribe((data: boolean) => {
-      this.isLoggedIn = data;
-    });
+    console.log(localStorage.getItem('authToken'))
+    if (localStorage.getItem('authToken') !== null)
+      this.isLoggedIn = true;
   }
 
   onchange() {

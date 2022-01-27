@@ -161,7 +161,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" [routerLink]='["/login"]' (click)="isLoggingIn()" *ngIf="!isLoggedIn">login</a>
-                <a class="dropdown-item" href="#" *ngIf="isLoggedIn" >account</a>
+                <a class="dropdown-item" [routerLink]='["/profile"]' *ngIf="isLoggedIn" >account</a>
                 <a class="dropdown-item" (click)="logout()" [routerLink]='["/home"]' *ngIf="isLoggedIn">logout</a>
               </div>
             </span>
