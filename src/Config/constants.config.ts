@@ -11,7 +11,8 @@ export const CONSTANTS = {
     users : {
       getUsers : 'http://localhost:3000/users/all',
       getUser : 'http://localhost:3000/users',
-      validateEmail: 'http://localhost:3000/users/validateEmail/',
+      editUser : 'http://localhost:3000/users',
+      deleteUser : 'http://localhost:3000/users',
     },
     orders : {
       getOrders : 'http://localhost:3000/orders/all',

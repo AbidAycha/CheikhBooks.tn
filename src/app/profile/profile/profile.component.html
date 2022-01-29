@@ -7,15 +7,16 @@
                 <img
                     src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_250,q_auto:good,w_250/v1/gcs/platform-data-dsc/avatars/shatha_siala_kfk5TVv.jpg">
             </div>
-            <div id="u-name">Himalaya Singh</div>
-            <div id="u-since">user since april 2012</div>
+            <div id="u-name">{{user.firstname}} {{user.lastname}}</div>
+            <div id="u-since">user since {{user.createdAt | date:'longDate'}}</div>
             <div class="tb" id="m-btns">
                 <div class="td dropdown">
                     <button id="dropEdit" class="btn dropdown-toggle" data-bs-toggle="dropdown">
                         <span>Edit Profile </span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item drop-link" [routerLink]="['edit']"><i class="material-icons">edit</i> <span>Edit
+                        <li><a class="dropdown-item drop-link" [routerLink]="['edit']"><i
+                                    class="material-icons">edit</i> <span>Edit
                                     Profile</span></a></li>
                         <li><a class="dropdown-item drop-link" href="#" data-toggle="modal"
                                 data-target="#deleteModal"><i class="material-icons">delete</i> <span>Delete
@@ -41,13 +42,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteProfile()">Yes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        (click)="deleteProfile()">Yes</button>
                 </div>
             </div>
         </div>
     </div>
     <div id="user-score">
-        <div id="score-nbr">15</div>
+        <div id="score-nbr">{{user.score.value}}</div>
         <div id="score-pt">points</div>
     </div>
     <div id="main-content">
@@ -59,20 +61,19 @@
                         <div class="lb-action"><i class="material-icons">edit</i></div>
                     </div>
                     <div id="i-box">
-                        <div id="intro-line">email@lol.fr</div>
-                        <div id="u-occ">(+231) 218333333</div>
+                        <div id="intro-line">{{user.email}}</div>
+                        <div id="u-occ">{{user.phone}}</div>
                     </div>
                 </div>
-                <div *ngFor="let num of [1, 2,]">
+                <div *ngFor="let address of user.adreesses">
                     <div class="l-cnt l-mrg">
                         <div class="cnt-label">
                             <span>Address</span>
                             <div class="lb-action"><i class="material-icons">edit</i></div>
                         </div>
                         <div id="i-box">
-                            <div id="u-occ">bouassida Tunis Street Km4</div>
-                            <div id="u-loc"><i class="material-icons">location_on</i><a href="#">city</a>, <a
-                                    href="#">country</a>
+                            <div id="u-occ">{{address.address}}</div>
+                            <div id="u-loc"><i class="material-icons">location_on</i><a href="#">{{address.city}}</a>
                             </div>
                         </div>
                     </div>
@@ -85,8 +86,8 @@
                         <div class="lb-action"><i class="material-icons">add</i></div>
                         <div fxLayout="row wrap" fxLayoutGap="1.1% grid">
                             <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="45%"
-                                *ngFor="let num of [1, 2, 3, 4, 5]">
-                                <app-card-book [index]="num" [bookHeight]=30></app-card-book>
+                                *ngFor="let book of user.books; let index = index">
+                                <app-card-book [index]="index" [book]="book" [bookHeight]=30></app-card-book>
                             </div>
                         </div>
                     </div>

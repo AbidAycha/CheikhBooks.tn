@@ -1,7 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,13 +11,27 @@ import { Observable } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private service: UserService, private authService: AuthenticationService) { }
+
+  user: any;
 
   ngOnInit(): void {
+    this.load();
+  }
+
+  load() {
+    this.service.getUser().subscribe((data) => {
+      this.user = data;
+      console.log(data)
+    }
+    );
   }
 
   deleteProfile() {
-    console.log("deleted + redirect to home")
+    this.authService.logout();
+    this.service.deleteUser(this.user.id).subscribe((data) => {
+      console.log(data)
+    });
     this.router.navigate(['home']);
   }
 
