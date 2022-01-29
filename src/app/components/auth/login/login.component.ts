@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class LoginComponent implements OnInit , OnDestroy {
 
-  showPassword = true;
+  showPassword = false;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -52,6 +52,9 @@ export class LoginComponent implements OnInit , OnDestroy {
           });
           //console.log(localStorage.getItem('role'));
     }
+  }
+  changePasswdVisibility(){
+    this.showPassword = !this.showPassword;
   }
 
   ngOnDestroy() {

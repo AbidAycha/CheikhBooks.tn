@@ -60,7 +60,7 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
     FooterComponent,
     CategoryFooterUtilityComponent,
     LoginComponent,
-    //RegistrationComponent
+    RegistrationComponent,
     ResultSearchPageComponent,
     SearchResultSidebarComponent,
     AdminComponent,
@@ -82,12 +82,12 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
     HttpClientModule,
     MatListModule,
     FlexLayoutModule,
-    GoogleMapsModule,    
+    GoogleMapsModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [    
+  providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

@@ -22,7 +22,12 @@
               </p>
             </div>
           </div>
-          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate class="login-form">
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="login()"
+            novalidate
+            class="login-form"
+          >
             <div class="form-group">
               <div
                 class="icon d-flex align-items-center justify-content-center"
@@ -36,9 +41,13 @@
                 formControlName="email"
                 required
               />
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="email?.touched && email?.invalid">
-              Username is required
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="email?.touched && email?.invalid"
+              >
+                Username is required
+              </div>
             </div>
 
             <div class="form-group">
@@ -52,31 +61,46 @@
                 class="form-control rounded-left"
                 placeholder="Password"
                 formControlName="password"
-                [type]="showPassword ? 'password' : 'text'"
+                [type]="showPassword ? 'text' : 'password'"
                 required
               />
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="password?.touched && password?.invalid">
-              Password is required
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="password?.touched && password?.invalid"
+              >
+                Password is required
+              </div>
             </div>
 
             <div class="form-group d-flex align-items-center">
               <div class="w-100">
                 <label class="checkbox-wrap checkbox-primary mb-0"
                   >Show Password
-                  <input type="checkbox" [checked]="showPassword" (click)="showPassword = !showPassword"/>
+                  <input
+                    type="checkbox"
+                    [checked]="showPassword"
+                    (click)="changePasswdVisibility()"
+                  />
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="w-100 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary rounded submit">
+                <button
+                  type="submit"
+                  [disabled]="loginForm.invalid"
+                  class="btn btn-primary rounded submit"
+                >
                   Login
                 </button>
               </div>
             </div>
             <div class="form-group mt-4">
               <div class="w-100 text-center">
-                <p class="mb-1">Don't have an account? <a [routerLink]='["/register"]'>Sign Up</a></p>
+                <p class="mb-1">
+                  Don't have an account?
+                  <a [routerLink]="['/register']">Sign Up</a>
+                </p>
                 <p><a href="#">Forgot Password</a></p>
               </div>
             </div>

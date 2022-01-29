@@ -39,7 +39,6 @@ export class AuthenticationService {
   setUserRole() {
     if (localStorage.getItem('authToken')) {
       const decodeUserDetails = JSON.parse(atob(localStorage.getItem('authToken')!.split('.')[1]));
-
       localStorage.setItem('role', decodeUserDetails.role);
     }
   }
