@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+//import { ModalModule } from "ngx-bootstrap";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +44,7 @@ import { ProfileComponent } from './profile/profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { BookDetailsComponent } from './books-page/book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import { CartComponent } from './cart/cart.component';
     GoogleMapsModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true },
@@ -99,7 +103,8 @@ import { CartComponent } from './cart/cart.component';
     AppComponent,
     GoogleMapsModule,
     MatCheckboxModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
+  
 })
 export class AppModule {}

@@ -1,1 +1,164 @@
-<p>cart works!</p>
+<ng-container *ngIf="books.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-book">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Book Title</th>
+                            <th>Book Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of books; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <th style="width: 12%;">{{item.price}} DT</th>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger">
+                                    <i class="fa fa-trash-o fa-lg"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
+                          <!--  <td><button (click)="checkoutCart(books)" class="btn btn-success">Checkout</button></td>-->
+                            
+                            <td><button (click) =open(content) class="btn btn-success">Checkout</button></td>
+                            <!--<td><button type="button" 
+                                    mdbBtn color="default" 
+                                    data-toggle="modal" 
+                                    data-target="#basicExample"
+                                    (click)="frame.show()" 
+                                     mdbWavesEffect>
+                                     Launch Modal</button>                           
+                            <button
+                            type="button"
+                            class="btn btn-primary"
+                            data-mdb-toggle="modal"
+                            data-mdb-target="#exampleModal"
+                        >
+                            Launch demo modal
+                        </button></td>
+                        <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                Modal title
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-mdb-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">...</div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                Close
+                              </button>
+                              <button type="button" class="btn btn-primary">
+                                Save changes
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    -->
+                            <td><strong>Grand Total : {{grandTotal}} DT</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</ng-container>
+
+
+
+
+
+<ng-container *ngIf="books.length ==0 && isLoggedIn">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!isLoggedIn">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title center">You should be logged in to see your cart </h5>
+        </div>
+        <div class="center">
+            <button class="btn btn-outline-warning" routerLink="/login">
+                Login
+            </button>
+        </div>
+    </div>
+</ng-container>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Checkout</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div  class="md-form mb-5">
+        <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+        <label>{{user.firstname}} {{user.lastname}}</label>
+    </div>
+    <div  class="md-form mb-5">
+        <mdb-icon fas icon="phone" class="prefix grey-text"></mdb-icon>
+        <label>{{user.phone}}</label>
+    </div>
+    <form >
+        
+        <div class="md-form mb-5">
+         <mdb-icon fas icon="home" class="prefix grey-text"></mdb-icon>
+         <input type="text" id="form32" class="form-control">
+         <label for="form32">address</label>
+         </div>
+     </form>
+    <div class="modal-body">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of books">
+                <td>{{item.title}}</td>
+                <th style="width: 12%;">{{item.price}} DT</th>
+                
+            </tr>
+            <tr>   <td><strong>Grand Total : {{grandTotal}} DT</strong></td>            </tr>
+        </tbody>
+
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="checkoutCart(books); modal.close('Save click') ">Save</button>
+    </div>
+  </ng-template>

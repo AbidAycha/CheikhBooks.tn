@@ -15,6 +15,7 @@ import { OrderTableComponent } from './admin/order-table/order-table.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { BookDetailsComponent } from './books-page/book-details/book-details.component';
+import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -42,6 +43,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: PageNotFoundComponent },
+
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

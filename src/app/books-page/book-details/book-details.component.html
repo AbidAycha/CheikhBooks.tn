@@ -1,4 +1,5 @@
-<div class="container-fluid " >
+<ng-container *ngIf="book.isValid == true">
+  <div class="container-fluid " >
     <div class="row justify-content-md-center" style="margin: 100px">
       <div class="col-md-3" *ngIf="book && book.image">
         <img [src]="book.image" alt="" class="figure-img" style="width:300px;height:400px;">
@@ -27,26 +28,26 @@
             Type: {{book.type}}
         </p>
         
-        <!--- <p class="lead" *ngIf="authService.isLoggedIn() && !book.addedToCart">
+        <!-- <p class="lead" *ngIf="authService.isLoggedIn">
           <app-add-to-cart [inputProduct]="book"
-                           *ngIf="authService.isLoggedIn() && !book.addedToCart"></app-add-to-cart>
+                           *ngIf="authService.isLoggedIn"></app-add-to-cart>
         </p>
-        <p class="lead text-warning" *ngIf="authService.isLoggedIn() && book.addedToCart">
-          You already added this book into your cart
-          <a class="btn btn-primary" routerLink="/cart">
-            Check Cart
-          </a>
+        -->
+        <p class="lead">
+        <!--  <button class="btn btn-outline-primary"  *ngIf="isLoggedIn" (click)=addtocart(book)>Add to cart</button> 
+          <button class="btn btn-outline-primary"  *ngIf="isLoggedIn" (click)=func(book) >Add to cart</button> -->
+          <button  *ngIf="isLoggedIn" (click)="onClick(book)" [ngClass]="action =='Add to Cart' ? ' btn btn-outline-primary': 'btn btn-outline-danger'"> {{action}}</button>
+
         </p>
-        <p class="lead text-warning" *ngIf="!authService.isLoggedIn()">
-          You should be logged in to add this book into your cart &nbsp;
-          <button class="btn btn-outline-warning" routerLink="/auth/login">
+        <p class="lead text-warning" *ngIf="!isLoggedIn">
+          You should be logged in to add this book into your cart
+          <button class="btn btn-outline-warning" routerLink="/login">
             Login
           </button>
         </p>
-        <p class="lead">
-          <button class="btn btn-outline-primary" routerLink="/categories">Back to categories</button>
-        </p>--->
+        
       </div>
     </div>
   </div>
   
+</ng-container>
